@@ -21,7 +21,7 @@ The Address App is a web application built with Next.js, TypeScript, and Tailwin
 
 ## Whats Missing?
 
-To display my abilities i thoought of transformings this project into a small SaaS where travels can save nice spots in the cities and share a brief description with pictures., consider the following enhancements:
+To display my abilities i thoought of transformings this project into a small SaaS where travels can save nice spots in the cities and share a brief description with pictures, consider the following enhancements:
 
 **Component Libraries:**
 
