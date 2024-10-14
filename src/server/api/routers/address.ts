@@ -1,19 +1,18 @@
-
 import { z } from 'zod';
 import { createTRPCRouter, publicProcedure } from '../trpc';
+import { AddressLinkedList } from './LInkedList';
 
-// Define the Address interface (optional but recommended)
-type AddressComponent = Record<string, never>;
 
 interface Address {
     display_name: string;
     lat: string;
     lon: string;
-    address: AddressComponent;
+    address: Record<string, unknown>;
     timestamp: number;
 }
 
-let addresses: Address[] = [];
+//  linked list
+let addressList = new AddressLinkedList();
 
 export const addressRouter = createTRPCRouter({
     addAddress: publicProcedure
@@ -26,21 +25,19 @@ export const addressRouter = createTRPCRouter({
             })
         )
         .mutation(({ input }) => {
-            const newAddress: unknown = {
+            const newAddress: Address = {
                 ...input,
                 timestamp: Date.now(),
             };
 
-            addresses.unshift((newAddress as Address));
-
-            if (addresses.length > 50) {
-                addresses = addresses.slice(0, 50);
-            }
+            //  new address to the linked list
+            addressList.addAddress(newAddress);
 
             return { success: true };
         }),
 
     getAddresses: publicProcedure.query(() => {
-        return addresses;
+        //addresses from the linked list
+        return addressList.getAddresses();
     }),
 });
