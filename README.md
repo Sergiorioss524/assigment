@@ -34,9 +34,11 @@ Deploy the application using Vercel. Vercel provides a seamless deployment proce
 Backend Integration:
 
 Integrate Prisma as an ORM for managing your database interactions. Use PostgreSQL as a database to store user accounts and saved addresses efficiently. Define your data models in Prisma and perform CRUD operations seamlessly.
+
 Payment Processing:
 
 Integrate Stripe for subscription payments. This will allow you to manage different subscription tiers, handle payments, and provide a secure checkout experience for your users. Use Stripe's API to create subscriptions, manage billing, and provide invoices.
+
 Authentication Management:
 
 Implement Kinde for user authentication and management. Kinde provides an easy way to handle user signup, login, and user session management, ensuring a secure experience for your users.
