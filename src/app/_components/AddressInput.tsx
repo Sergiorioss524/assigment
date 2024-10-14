@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { api } from "~/trpc/react";// Adjust the import path based on your project structure
+import { api } from "~/trpc/react";
 
 type AddressComponent = Record<string, never>;
 
@@ -52,7 +52,7 @@ const AddressInput: React.FC = () => {
                     },
                     headers: {
                         'Accept-Language': 'en',
-                        'User-Agent': 'assigment riosgenuziosergio@gmail.com', // Replace with your app name and email
+                        'User-Agent': 'assigment riosgenuziosergio@gmail.com',
                     },
                 }
             );
@@ -97,7 +97,6 @@ const AddressInput: React.FC = () => {
                 address: selectedAddress.address,
             });
 
-            // Reset the form
             setSelectedAddress(null);
             setQuery('');
             setIsButtonDisabled(true);
@@ -108,7 +107,6 @@ const AddressInput: React.FC = () => {
 
     return (
         <div className="relative">
-            {/* Search Form */}
             <form className="w-full mx-auto">
                 <label
                     htmlFor="default-search"
@@ -157,7 +155,7 @@ const AddressInput: React.FC = () => {
             </form>
 
 
-            {/* Suggestions List */}
+
             {suggestions.length > 0 && (
                 <ul className="absolute z-10 w-full bg-white border border-gray-300 rounded mt-1 max-h-60 overflow-y-auto">
                     {suggestions.map((suggestion) => (
@@ -172,7 +170,7 @@ const AddressInput: React.FC = () => {
                 </ul>
             )}
 
-            {/* Save Address Button */}
+
             <button
                 onClick={handleSaveAddress}
                 disabled={isButtonDisabled}
@@ -185,7 +183,6 @@ const AddressInput: React.FC = () => {
                 Save Address
             </button>
 
-            {/* Saved Addresses List */}
             <div className="mt-8">
                 <h2 className="text-xl font-semibold mb-4">Saved Addresses</h2>
                 {addressesQuery.isLoading ? (
